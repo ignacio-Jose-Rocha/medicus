@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom'; // ✅ Agregado
 
 const TurnosSolicitados = () => {
   const [turnos, setTurnos] = useState([]);
   const token = localStorage.getItem('token');
+  const navigate = useNavigate(); // ✅ Agregado
 
   const fetchTurnos = async () => {
     if (!token) return;
@@ -55,7 +57,7 @@ const TurnosSolicitados = () => {
 
   return (
     <div style={styles.container}>
-      <button style={styles.backButton} onClick={() => window.location.href = '/dashboard'}>
+      <button style={styles.backButton} onClick={() => navigate('/dashboard')}>
         ← Volver al Dashboard
       </button>
       <h2 style={styles.title}>Mis Turnos Activos</h2>
@@ -92,66 +94,4 @@ const TurnosSolicitados = () => {
     </div>
   );
 };
-
-const styles = {
-  container: {
-    padding: '20px',
-    margin: '0 auto',
-    color: '#212529',
-  },
-  backButton: {
-    marginBottom: '20px',
-    backgroundColor: '#007bff',
-    color: '#fff',
-    border: 'none',
-    padding: '10px 16px',
-    borderRadius: '6px',
-    fontSize: '14px',
-    cursor: 'pointer',
-    transition: 'background-color 0.3s ease',
-  },
-  title: {
-    textAlign: 'center',
-    color: '#212529',
-    marginBottom: '30px',
-  },
-  noTurnos: {
-    textAlign: 'center',
-    fontSize: '18px',
-    color: '#6c757d',
-  },
-  turnoList: {
-    display: 'grid',
-    gridTemplateColumns: '1fr', // cada turno ocupa todo el ancho disponible
-    gap: '20px',
-  },
-  card: {
-    backgroundColor: '#fff',
-    color: '#212529',
-    padding: '20px',
-    borderRadius: '12px',
-    boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'space-between',
-  },
-  cancelButton: {
-    marginTop: '15px',
-    backgroundColor: '#dc3545',
-    color: '#fff',
-    border: 'none',
-    padding: '10px',
-    borderRadius: '8px',
-    fontSize: '14px',
-    cursor: 'pointer',
-    transition: 'background-color 0.3s ease',
-  },
-  link: {
-    color: '#007bff',
-    textDecoration: 'none',
-  },
-};
-
-
-export default TurnosSolicitados;
 
