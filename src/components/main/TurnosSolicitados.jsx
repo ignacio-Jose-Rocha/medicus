@@ -55,7 +55,7 @@ const TurnosSolicitados = () => {
 
   return (
     <div style={styles.container}>
-      <button style={styles.backButton} onClick={() => window.location.href = 'https://medicusclinica.vercel.app/dashboard'}>
+      <button style={styles.backButton} onClick={() => window.location.href = '/dashboard'}>
         ← Volver al Dashboard
       </button>
       <h2 style={styles.title}>Mis Turnos Activos</h2>
