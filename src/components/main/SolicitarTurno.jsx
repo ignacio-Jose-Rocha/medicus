@@ -84,7 +84,7 @@ const SolicitarTurno = () => {
 
   return (
     <div style={styles.container}>
-      <button onClick={() => navigate('/dashboard')} style={styles.backButton}>← Volver al Dashboard</button>
+      <button onClick={() => navigate('https://medicusclinica.vercel.app/dashboard')} style={styles.backButton}>← Volver al Dashboard</button>
       <h2 style={styles.title}>Solicitar Turno</h2>
       <form onSubmit={handleSubmit} style={styles.form}>
         <label style={styles.label}>Motivo:</label>
